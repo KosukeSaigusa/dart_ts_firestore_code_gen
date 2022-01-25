@@ -1,0 +1,1 @@
+# dart_ts_firestore_code_gen
