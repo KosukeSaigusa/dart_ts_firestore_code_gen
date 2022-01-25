@@ -4,3 +4,7 @@
 
 # Conventional directory for build output.
 build/
+
+# Flutter relared
+.flutter-plugins
+.flutter-plugins-dependencies
