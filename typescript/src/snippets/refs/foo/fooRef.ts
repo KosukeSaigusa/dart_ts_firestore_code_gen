@@ -1,9 +1,11 @@
+import FirebaseFirestore, { FieldValue } from "@google-cloud/firestore"
+
 export const fooConverter = {
   fromFirestore(qds: FirebaseFirestore.QueryDocumentSnapshot): Foo {
       const data = qds.data()
       return {
         fooId: qds.id,
-        createdAt: data.cretedAt ?? null,
+        createdAt: data.createdAt ?? null,
         updatedAt: data.createdAt ?? null,
         stringField: data.stringField,
         intField: data.intField,
@@ -33,11 +35,19 @@ export const fooConverter = {
 }
 
 export const partialFooConverter = {
-  fromFirestore(qds: FirebaseFirestore.QueryDocumentSnapshot): PartialFoo {
-      const data = qds.data()
-      return { userId: data.userId }
-  },
   toFirestore(obj: PartialFoo): FirebaseFirestore.DocumentData {
-      return { userId: obj.userId }
+    return {
+      fooId: obj.fooId,
+      createdAt: FieldValue.serverTimestamp(),
+      updatedAt: FieldValue.serverTimestamp(),
+      stringField: obj.stringField,
+      intField: obj.intField,
+      doubleField: obj.doubleField,
+      dateTimeField: obj.dateTimeField,
+      defaultZeroIntField: obj.defaultZeroIntField ?? 0,
+      defaultFalseBoolField: obj.defaultFalseBoolField ?? false,
+      defaultEmptyStringListField: obj.defaultEmptyStringListField ?? [],
+      defaultEmptyIntListField: obj.defaultEmptyIntListField ?? [],
+    }
   }
 }
