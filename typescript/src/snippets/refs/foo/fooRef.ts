@@ -37,7 +37,6 @@ export const fooConverter = {
 export const partialFooConverter = {
   toFirestore(obj: PartialFoo): FirebaseFirestore.DocumentData {
     return {
-      fooId: obj.fooId,
       createdAt: FieldValue.serverTimestamp(),
       updatedAt: FieldValue.serverTimestamp(),
       stringField: obj.stringField,
