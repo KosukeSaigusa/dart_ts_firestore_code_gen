@@ -1,0 +1,118 @@
+{
+  "output": {
+    "dartModelsDir": "./path/to/dartModelsDir",
+    "dartRefsDir": "./path/to/dartRefsDir",
+    "dartRepositoryDir": "./path/to/dartRepositoryDir",
+    "tsTypesDir": "./path/to/tsTypesDir",
+    "tsRefsDir": "./path/to/tsRefsDir",
+    "tsRepositoryDir": "./path/to/tsRepositoryDir"
+  },
+  "Firestore": {
+    "collections": [
+      {
+        "collectionName": "mottaiUser",
+        "documents": [
+          {
+            "documentId": "mottaiUserId",
+            "fields": [
+              {
+                "fieldName": "mottaiUserId",
+                "typeInFirestore": "String",
+                "autoDocumentId": true
+              },
+              {
+                "fieldName": "name",
+                "typeInFirestore": "String"
+              },
+              {
+                "fieldName": "createdAt",
+                "typeInFirestore": "Timestamp",
+                "nullable": true,
+                "undefinedable": true,
+                "typeInDart": "DateTime",
+                "typeInTS": "Date",
+                "autoNow": true
+              },
+              {
+                "fieldName": "updatedAt",
+                "typeInFirestore": "Timestamp",
+                "nullable": true,
+                "undefinedable": true,
+                "typeInDart": "DateTime",
+                "typeInTS": "Date",
+                "autoNow": true
+              }
+            ],
+            "collections": [
+              {
+                "collectionName": "fcm",
+                "documents": [
+                  {
+                    "documentId": "fcmId",
+                    "fields": [
+                      {
+                        "fieldName": "createdAt",
+                        "typeInFirestore": "Timestamp",
+                        "nullable": true,
+                        "undefinedable": true,
+                        "typeInDart": "DateTime",
+                        "typeInTS": "Date",
+                        "autoNow": true
+                      },
+                      {
+                        "fieldName": "updatedAt",
+                        "typeInFirestore": "Timestamp",
+                        "nullable": true,
+                        "undefinedable": true,
+                        "typeInDart": "DateTime",
+                        "typeInTS": "Date",
+                        "autoNow": true
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "collectionName": "host",
+        "documents": [
+          {
+            "documentId": "hostId",
+            "fields": [
+              {
+                "fieldName": "hostId",
+                "typeInFirestore": "String",
+                "autoDocumentId": true
+              },
+              {
+                "fieldName": "name",
+                "typeInFirestore": "String"
+              },
+              {
+                "fieldName": "createdAt",
+                "typeInFirestore": "Timestamp",
+                "nullable": true,
+                "undefinedable": true,
+                "typeInDart": "DateTime",
+                "typeInTS": "Date",
+                "autoNow": true
+              },
+              {
+                "fieldName": "updatedAt",
+                "typeInFirestore": "Timestamp",
+                "nullable": true,
+                "undefinedable": true,
+                "typeInDart": "DateTime",
+                "typeInTS": "Date",
+                "autoNow": true
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
