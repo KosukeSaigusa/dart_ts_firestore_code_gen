@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:cli/generator/firestore/firestore.dart';
+import 'package:cli/generator/firestore_database/firestore_database.dart';
 
 Future<void> main(List<String> arguments) async {
   final file = await _jsonFile;

@@ -1,8 +1,8 @@
 import 'package:cli/generator/collection/collection.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'firestore.freezed.dart';
-part 'firestore.g.dart';
+part 'firestore_database.freezed.dart';
+part 'firestore_database.g.dart';
 
 @freezed
 class FirestoreDatabase with _$FirestoreDatabase {
