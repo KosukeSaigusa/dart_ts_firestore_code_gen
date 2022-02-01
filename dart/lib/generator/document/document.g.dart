@@ -12,10 +12,15 @@ _$_Document _$$_DocumentFromJson(Map<String, dynamic> json) => _$_Document(
               ?.map((e) => Field.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const [],
+      collectios: (json['collectios'] as List<dynamic>?)
+              ?.map((e) => Collection.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const [],
     );
 
 Map<String, dynamic> _$$_DocumentToJson(_$_Document instance) =>
     <String, dynamic>{
       'documentId': instance.documentId,
       'fields': instance.fields,
+      'collectios': instance.collectios,
     };

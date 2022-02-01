@@ -22,10 +22,14 @@ Document _$DocumentFromJson(Map<String, dynamic> json) {
 class _$DocumentTearOff {
   const _$DocumentTearOff();
 
-  _Document call({required String documentId, List<Field> fields = const []}) {
+  _Document call(
+      {required String documentId,
+      List<Field> fields = const [],
+      List<Collection> collectios = const []}) {
     return _Document(
       documentId: documentId,
       fields: fields,
+      collectios: collectios,
     );
   }
 
@@ -41,6 +45,7 @@ const $Document = _$DocumentTearOff();
 mixin _$Document {
   String get documentId => throw _privateConstructorUsedError;
   List<Field> get fields => throw _privateConstructorUsedError;
+  List<Collection> get collectios => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -52,7 +57,8 @@ mixin _$Document {
 abstract class $DocumentCopyWith<$Res> {
   factory $DocumentCopyWith(Document value, $Res Function(Document) then) =
       _$DocumentCopyWithImpl<$Res>;
-  $Res call({String documentId, List<Field> fields});
+  $Res call(
+      {String documentId, List<Field> fields, List<Collection> collectios});
 }
 
 /// @nodoc
@@ -67,6 +73,7 @@ class _$DocumentCopyWithImpl<$Res> implements $DocumentCopyWith<$Res> {
   $Res call({
     Object? documentId = freezed,
     Object? fields = freezed,
+    Object? collectios = freezed,
   }) {
     return _then(_value.copyWith(
       documentId: documentId == freezed
@@ -77,6 +84,10 @@ class _$DocumentCopyWithImpl<$Res> implements $DocumentCopyWith<$Res> {
           ? _value.fields
           : fields // ignore: cast_nullable_to_non_nullable
               as List<Field>,
+      collectios: collectios == freezed
+          ? _value.collectios
+          : collectios // ignore: cast_nullable_to_non_nullable
+              as List<Collection>,
     ));
   }
 }
@@ -86,7 +97,8 @@ abstract class _$DocumentCopyWith<$Res> implements $DocumentCopyWith<$Res> {
   factory _$DocumentCopyWith(_Document value, $Res Function(_Document) then) =
       __$DocumentCopyWithImpl<$Res>;
   @override
-  $Res call({String documentId, List<Field> fields});
+  $Res call(
+      {String documentId, List<Field> fields, List<Collection> collectios});
 }
 
 /// @nodoc
@@ -102,6 +114,7 @@ class __$DocumentCopyWithImpl<$Res> extends _$DocumentCopyWithImpl<$Res>
   $Res call({
     Object? documentId = freezed,
     Object? fields = freezed,
+    Object? collectios = freezed,
   }) {
     return _then(_Document(
       documentId: documentId == freezed
@@ -112,6 +125,10 @@ class __$DocumentCopyWithImpl<$Res> extends _$DocumentCopyWithImpl<$Res>
           ? _value.fields
           : fields // ignore: cast_nullable_to_non_nullable
               as List<Field>,
+      collectios: collectios == freezed
+          ? _value.collectios
+          : collectios // ignore: cast_nullable_to_non_nullable
+              as List<Collection>,
     ));
   }
 }
@@ -119,7 +136,10 @@ class __$DocumentCopyWithImpl<$Res> extends _$DocumentCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Document implements _Document {
-  const _$_Document({required this.documentId, this.fields = const []});
+  const _$_Document(
+      {required this.documentId,
+      this.fields = const [],
+      this.collectios = const []});
 
   factory _$_Document.fromJson(Map<String, dynamic> json) =>
       _$$_DocumentFromJson(json);
@@ -129,10 +149,13 @@ class _$_Document implements _Document {
   @JsonKey()
   @override
   final List<Field> fields;
+  @JsonKey()
+  @override
+  final List<Collection> collectios;
 
   @override
   String toString() {
-    return 'Document(documentId: $documentId, fields: $fields)';
+    return 'Document(documentId: $documentId, fields: $fields, collectios: $collectios)';
   }
 
   @override
@@ -142,14 +165,17 @@ class _$_Document implements _Document {
             other is _Document &&
             const DeepCollectionEquality()
                 .equals(other.documentId, documentId) &&
-            const DeepCollectionEquality().equals(other.fields, fields));
+            const DeepCollectionEquality().equals(other.fields, fields) &&
+            const DeepCollectionEquality()
+                .equals(other.collectios, collectios));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(documentId),
-      const DeepCollectionEquality().hash(fields));
+      const DeepCollectionEquality().hash(fields),
+      const DeepCollectionEquality().hash(collectios));
 
   @JsonKey(ignore: true)
   @override
@@ -163,8 +189,10 @@ class _$_Document implements _Document {
 }
 
 abstract class _Document implements Document {
-  const factory _Document({required String documentId, List<Field> fields}) =
-      _$_Document;
+  const factory _Document(
+      {required String documentId,
+      List<Field> fields,
+      List<Collection> collectios}) = _$_Document;
 
   factory _Document.fromJson(Map<String, dynamic> json) = _$_Document.fromJson;
 
@@ -172,6 +200,8 @@ abstract class _Document implements Document {
   String get documentId;
   @override
   List<Field> get fields;
+  @override
+  List<Collection> get collectios;
   @override
   @JsonKey(ignore: true)
   _$DocumentCopyWith<_Document> get copyWith =>
