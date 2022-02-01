@@ -9,24 +9,36 @@ class FooRepository {
   static Future<List<Foo>> fetchFoos({
     Source source = Source.serverAndCache,
     Query<Foo>? Function(Query<Foo> query)? queryBuilder,
+    int Function(Foo lhs, Foo rhs)? compare,
   }) async {
     Query<Foo> query = FooRef.foosRef;
     if (queryBuilder != null) {
       query = queryBuilder(query)!;
     }
     final qs = await query.get(GetOptions(source: source));
-    return qs.docs.map((qds) => qds.data()).toList();
+    final result = qs.docs.map((qds) => qds.data()).toList();
+    if (compare != null) {
+      result.sort(compare);
+    }
+    return result;
   }
 
   /// Foo 一覧を購読する。
   static Stream<List<Foo>> subscribeFoos({
     Query<Foo>? Function(Query<Foo> query)? queryBuilder,
+    int Function(Foo lhs, Foo rhs)? compare,
   }) {
     Query<Foo> query = FooRef.foosRef;
     if (queryBuilder != null) {
       query = queryBuilder(query)!;
     }
-    return query.snapshots().map((qs) => qs.docs.map((qds) => qds.data()).toList());
+    return query.snapshots().map((qs) {
+      final result = qs.docs.map((qds) => qds.data()).toList();
+      if (compare != null) {
+        result.sort(compare);
+      }
+      return result;
+    });
   }
 
   /// 指定した Foo を取得する。
