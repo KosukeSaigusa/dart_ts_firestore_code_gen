@@ -10,7 +10,7 @@ class Document with _$Document {
   const factory Document({
     required String documentId,
     @Default([]) List<Field> fields,
-    @Default([]) List<Collection> collectios,
+    @Default([]) List<Collection> collections,
   }) = _Document;
 
   factory Document.fromJson(Map<String, dynamic> json) => _$DocumentFromJson(json);
